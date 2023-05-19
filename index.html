@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Code Snippet Wrapper</title>
-  <script src="https://unpkg.com/shiki@0.9.10/dist/index.unpkg.iife.js"></script>
+  <title>ACF Repeater Snippet Generator</title>
+  <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
+
+<script src="https://cdn.jsdelivr.net/npm/shiki"></script>
   
   <link rel="stylesheet" type="text/css" href="https://tympanus.net/Development/ButtonStylesInspiration/css/vicons-font.css" />
   
@@ -60,113 +62,129 @@ pre {
     .main-navigation input#additionalValue,
     .main-navigation textarea#codeSnippet {
       padding:10px 5px 10px 10px;
-      width:90%;
+      width:93%;
       background:#000;
       border:none;
       border-bottom: 1px solid #88C0D0;
       margin-bottom: 10px;
+      color: #eee;
     }
     textarea#codeSnippet {
       height:300px;
     }
+    button.copy-button {
+          border: none;
+    color: #eeeeee4f;
+    background: #2a2d36;
+    font-size: 11px;
+    }
     
-    
+    .back {
+          width: 30px;
+    background: #3F51B5;
+    text-align: center;
+    margin-bottom: 1rem;
+    padding-top: 5px;
+    }
+    .back svg {
+      width: 5px;
+    }
     
 
 /* Nina */
 .button--nina {
-	padding: 0 5px;
+  padding: 0 5px;
   width: 100%;
-	background: #1a2041;
-	color: #fff;
-	overflow: hidden;
-	-webkit-transition: background-color 0.3s;
-	transition: background-color 0.3s;
+  background: #1a2041;
+  color: #fff;
+  overflow: hidden;
+  -webkit-transition: background-color 0.3s;
+  transition: background-color 0.3s;
   position:relative;
   border:none;
 }
 .button--nina.button--inverted {
-	background: #fff;
-	color: #7986cb;
+  background: #fff;
+  color: #7986cb;
 }
 .button--nina > span {
-	display: inline-block;
-	padding: 1em 0;
-	opacity: 0;
-	color: #fff;
-	-webkit-transform: translate3d(0, -10px, 0);
-	transform: translate3d(0, -10px, 0);
-	-webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
-	transition: transform 0.3s, opacity 0.3s;
-	-webkit-transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
-	transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+  display: inline-block;
+  padding: 1em 0;
+  opacity: 0;
+  color: #fff;
+  -webkit-transform: translate3d(0, -10px, 0);
+  transform: translate3d(0, -10px, 0);
+  -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+  transition: transform 0.3s, opacity 0.3s;
+  -webkit-transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+  transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
 }
 .button--nina::before {
-	content: attr(data-text);
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	padding: 1em 0;
-	-webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
-	transition: transform 0.3s, opacity 0.3s;
-	-webkit-transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
-	transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 1em 0;
+  -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+  transition: transform 0.3s, opacity 0.3s;
+  -webkit-transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+  transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
 }
 .button--nina:hover {
-	background-color: #3f51b5;
+  background-color: #3f51b5;
   cursor:pointer;
 }
 .button--nina:hover::before {
-	opacity: 0;
-	-webkit-transform: translate3d(0, 100%, 0);
-	transform: translate3d(0, 100%, 0);
+  opacity: 0;
+  -webkit-transform: translate3d(0, 100%, 0);
+  transform: translate3d(0, 100%, 0);
 }
 .button--nina:hover > span {
-	opacity: 1;
-	-webkit-transform: translate3d(0, 0, 0);
-	transform: translate3d(0, 0, 0);
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
 }
 .button--nina:hover > span:nth-child(1) {
-	-webkit-transition-delay: 0.045s;
-	transition-delay: 0.045s;
+  -webkit-transition-delay: 0.045s;
+  transition-delay: 0.045s;
 }
 .button--nina:hover > span:nth-child(2) {
-	-webkit-transition-delay: 0.09s;
-	transition-delay: 0.09s;
+  -webkit-transition-delay: 0.09s;
+  transition-delay: 0.09s;
 }
 .button--nina:hover > span:nth-child(3) {
-	-webkit-transition-delay: 0.135s;
-	transition-delay: 0.135s;
+  -webkit-transition-delay: 0.135s;
+  transition-delay: 0.135s;
 }
 .button--nina:hover > span:nth-child(4) {
-	-webkit-transition-delay: 0.18s;
-	transition-delay: 0.18s;
+  -webkit-transition-delay: 0.18s;
+  transition-delay: 0.18s;
 }
 .button--nina:hover > span:nth-child(5) {
-	-webkit-transition-delay: 0.225s;
-	transition-delay: 0.225s;
+  -webkit-transition-delay: 0.225s;
+  transition-delay: 0.225s;
 }
 .button--nina:hover > span:nth-child(6) {
-	-webkit-transition-delay: 0.27s;
-	transition-delay: 0.27s;
+  -webkit-transition-delay: 0.27s;
+  transition-delay: 0.27s;
 }
 .button--nina:hover > span:nth-child(7) {
-	-webkit-transition-delay: 0.315s;
-	transition-delay: 0.315s;
+  -webkit-transition-delay: 0.315s;
+  transition-delay: 0.315s;
 }
 .button--nina:hover > span:nth-child(8) {
-	-webkit-transition-delay: 0.36s;
-	transition-delay: 0.36s;
+  -webkit-transition-delay: 0.36s;
+  transition-delay: 0.36s;
 }
 .button--nina:hover > span:nth-child(9) {
-	-webkit-transition-delay: 0.405s;
-	transition-delay: 0.405s;
+  -webkit-transition-delay: 0.405s;
+  transition-delay: 0.405s;
 }
 .button--nina:hover > span:nth-child(10) {
-	-webkit-transition-delay: 0.45s;
-	transition-delay: 0.45s;
+  -webkit-transition-delay: 0.45s;
+  transition-delay: 0.45s;
 }
   </style>
   
@@ -174,13 +192,18 @@ pre {
 <body>
   <div class="body-wrapper">
   <div class="main-navigation">
+    <a href="/">
+      <div class="back">
+          <svg xmlns="http://www.w3.org/2000/svg" width="11" height="20" id="arrow"><path fill-rule="evenodd" fill="#FFFFFF" d="M10.634.292a1.063 1.063 0 0 0-1.464 0L.607 8.556a1.95 1.95 0 0 0 0 2.827l8.625 8.325c.4.385 1.048.39 1.454.01a.975.975 0 0 0 .01-1.425l-7.893-7.617a.975.975 0 0 1 0-1.414l7.83-7.557a.974.974 0 0 0 0-1.413"></path></svg>
+      </div>
+    </a>
     <textarea id="codeSnippet" placeholder="Enter HTML code here"></textarea>
     <input type="text" id="repeaterFieldName" placeholder="Repeater Field Name">
-    <input type="text" id="additionalValue" placeholder="Additional Value">
-    
-<button onclick="appendCode()" class="button button--nina button--text-thick button--text-upper button--size-s" data-text="Create">
-						<span>C</span><span>r</span><span>e</span><span>a</span><span>t</span><span>e</span>
-					</button>
+    <input type="text" id="additionalValue" placeholder="Sub Field Value">
+
+    <button onclick="appendCode()" class="button button--nina button--text-thick button--text-upper button--size-s" data-text="Create">
+            <span>C</span><span>r</span><span>e</span><span>a</span><span>t</span><span>e</span>
+          </button>
     </div>
   <div class="code-block">
     <div id="codeContainer"></div>
@@ -223,20 +246,43 @@ pre {
       codeBlock.innerHTML = code;
     };
 
-    const wrapWithRepeaterLoop = (codeBlock, repeaterFieldName, additionalValues) => {
-      let repeaterCode = '';
+const wrapWithRepeaterLoop = (codeBlock, repeaterFieldName, additionalValues) => {
+  let repeaterCode = '';
 
-      repeaterCode += `<?php if (have_rows('${repeaterFieldName}')) : while (have_rows('${repeaterFieldName}')) : the_row(); ?>\n`;
-      repeaterCode += `${codeBlock}\n`;
+  repeaterCode += `<?php if (have_rows('${repeaterFieldName}')) : while (have_rows('${repeaterFieldName}')) : the_row(); ?>\n`;
+  repeaterCode += `\n${codeBlock}`;
 
-      additionalValues.forEach(additionalValue => {
-        repeaterCode += `<?= get_sub_field('${additionalValue}'); ?>\n`;
-      });
+  repeaterCode += "\n"; // spacing
 
-      repeaterCode += '<?php endwhile; endif; ?>';
+  additionalValues.forEach(additionalValue => {
+    repeaterCode += "\n"; // spacing
 
-      return repeaterCode;
-    };
+    if (additionalValue.includes("_image") || additionalValue.includes("_background")) {
+      repeaterCode += `<?php 
+        $acf_${additionalValue} = get_sub_field('${additionalValue}')['url']; 
+        $acf_${additionalValue}_alt = get_sub_field('${additionalValue}')['alt'];
+        if (!empty($acf_${additionalValue})) {
+      ?>\n`;
+      repeaterCode += `  <img src="<?= $acf_${additionalValue}; ?>" alt="<?= $acf_${additionalValue}_alt; ?>" />\n`;
+      repeaterCode += `<?php } ?>\n`;
+    } else {
+      repeaterCode += `<?php 
+        $acf_${additionalValue} = get_sub_field('${additionalValue}');
+        if (!empty($acf_${additionalValue})) {
+      ?>\n`;
+      repeaterCode += `  <?= $acf_${additionalValue}; ?>\n`;
+      repeaterCode += `<?php } ?>\n`;
+    }
+
+    repeaterCode += "\n"; // spacing
+  });
+
+  repeaterCode += "\n"; // spacing
+
+  repeaterCode += '<?php endwhile; endif; ?>';
+
+  return repeaterCode;
+};
 
     const copyToClipboard = text => {
       const textarea = document.createElement('textarea');
